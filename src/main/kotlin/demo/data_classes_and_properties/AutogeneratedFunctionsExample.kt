@@ -1,4 +1,4 @@
-package demo.data_classes
+package demo.data_classes_and_properties
 
 /**
  * Data class gets next functions, generated automatically:

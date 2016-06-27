@@ -1,4 +1,4 @@
-package demo.data_classes;
+package demo.data_classes_and_properties;
 
 public class JPerson {
     private final String name;
