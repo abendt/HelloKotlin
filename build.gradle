@@ -15,16 +15,22 @@ apply plugin: 'application'
 
 //mainClassName = 'demo.HelloWorldKt'
 
-defaultTasks 'run'
+//defaultTasks 'run'
 
 repositories {
   mavenCentral()
+
+  maven {
+    url "http://repository.jetbrains.com/all"
+  }
 }
 
 dependencies {
   compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
   testCompile 'junit:junit:4.12'
   testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
+  testCompile 'net.wuerl.kotlin:assertj-core-kotlin:0.1.1'
+  testCompile 'org.jetbrains.spek:spek:1.0.25'
 }
 
 task wrapper(type: Wrapper) {
