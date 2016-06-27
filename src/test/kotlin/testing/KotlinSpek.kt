@@ -1,13 +1,13 @@
 package testing
 
-import demo.Hello
+import hello.HelloWorld
 import org.assertj.core.api.KotlinAssertions.assertThat
 import org.jetbrains.spek.api.Spek
 
-class HelloSpek: Spek({
+class KotlinSpek : Spek({
     given("Hello Spek") {
         on("the result of the hello method") {
-            val hello = Hello().hello()
+            val hello = HelloWorld().hello()
 
             it("should be hello world") {
                 assertThat(hello).isEqualTo("Hello World")
