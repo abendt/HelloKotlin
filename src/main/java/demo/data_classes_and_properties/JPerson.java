@@ -1,6 +1,10 @@
 package demo.data_classes_and_properties;
 
+import com.google.common.base.MoreObjects;
+import com.google.common.base.Objects;
+
 public class JPerson {
+
     private final String name;
     private final int age;
 
@@ -22,25 +26,23 @@ public class JPerson {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        JPerson jPerson = (JPerson) o;
+        JPerson that = (JPerson) o;
 
-        if (getAge() != jPerson.getAge()) return false;
-        return getName() != null ? getName().equals(jPerson.getName()) : jPerson.getName() == null;
-
+        return Objects.equal(this.name, that.name) &&
+                Objects.equal(this.age, that.age);
     }
 
     @Override
     public int hashCode() {
-        int result = getName() != null ? getName().hashCode() : 0;
-        result = 31 * result + getAge();
-        return result;
+        return Objects.hashCode(name, age);
     }
+
 
     @Override
     public String toString() {
-        return "JPerson{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                '}';
+        return MoreObjects.toStringHelper(this)
+                .add("name", name)
+                .add("age", age)
+                .toString();
     }
 }
