@@ -5,7 +5,7 @@ import org.junit.Test
 import org.assertj.core.api.KotlinAssertions.assertThat
 import kotlin.test.assertFailsWith
 
-class KotlinJunit {
+class KotlinJunitTest {
 
     @Test
     fun firstTest() {

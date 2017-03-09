@@ -55,4 +55,31 @@ class NullSafety {
         assertThat(good ?: "not").isEqualTo("hello")
         assertThat(bad ?: "not").isEqualTo("not")
     }
+
+    @Test
+    fun elvisCanBeUsedWithReturn() {
+        var bad: String? = null
+
+        val result = bad ?: return
+
+        fail()
+    }
+
+    @Test
+    fun elvisCanBeUsedWithThrow() {
+        var bad: String? = null
+
+        assertFailsWith<Exception> {
+            val result = bad ?: throw Exception()
+        }
+    }
+
+    fun test() : String  {
+        return "test"
+    }
+
+    @Test
+    fun testIt() {
+        println(test())
+    }
 }

@@ -3,12 +3,19 @@ package demo.flow_control
 import demo.nullable_types_and_interop.Client
 
 fun main(args: Array<String>) {
-    cases("Hello")
-    cases(1)
-    cases(System.currentTimeMillis())
-    cases(Client())
-    cases("hello")
+
+    case2(Test("torsten"))
+    case2(Test("torsten2"))
 }
+
+fun case2(obj: Test) {
+    when(obj) {
+        Test("torsten") -> println("Torsten")
+        else -> println("Unknown")
+    }
+}
+
+data class Test(val name: String)
 
 fun cases(obj: Any) {
     when (obj) {
